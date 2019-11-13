@@ -32,15 +32,33 @@ Com apenas 6 linhas de código é possível ter um servidor de pé com a ajuda d
 ## Padronização de Sintaxe
 É a forma de lidar com a mesma estilização de um código dentro dos arquivos, e para isso temos várias bibliotecas em JavaScript para nos ajudar a criar um padrão para uma empresa, entre elas temos:
 
-**ESLint**
+### ESLint  
 É um linter - ferramentas que analisam o código-fonte para sinalizar erros de programação, bugs, erros estilísticos e construções suspeitas - que analisa o código para rapidamente achar problemas de padronizações e conserta automaticamente com algoritmos chamandos _find and replace_ para que você não precise lidar com erros de sintaxe manualmente.
 
-**Prettier**
+### Prettier 
 O Prettier aplica um estilo de código consistente (ou seja, a formatação do código que não afeta a árvore de sintaxe) em toda a sua base de código, porque desconsidera o estilo original, analisando-o e reimprimindo a sintaxe analisado com suas próprias regras que assumem o comprimento máximo da linha em conta, agrupando o código quando necessário.
 Tem a possibilidade de uma alta integração com linters (como o próprio ESLint) com exemplos de:
 
 | Depêndencia | Descrição |
 | --- | --- |
-| eslint-config-prettier | Desliga todas as regras que são desnecessárias ou podem conflitar com o Prettier. |
-| eslint-plugin-prettier | É um plugin que adiciona uma regra que formata o conteúdo usando Prettier |
+| **[eslint-config-prettier](https://github.com/prettier/eslint-config-prettier)** | Desliga todas as regras que são desnecessárias ou podem conflitar com o Prettier. |
+| **[eslint-plugin-prettier](https://github.com/prettier/eslint-plugin-prettier)** | É um plugin que adiciona uma regra que formata o conteúdo usando Prettier |
+
+### EditorConfig
+Para ser usada diretamente no VSCode, consta com algumas configurações que ajudam a manter uma consistência para múltiplos desenvolvedores trabalhando em um mesmo projeto independente da sua IDE. A configuração padrão usada pelos projetos do GETA são:
+| Configuração | Descrição | Valor usado |
+| --- | --- | --- |
+| **root** | Propriedade especial que deve ser especificado no topo de cada arquivo | **true** |
+| **indent_style** | Número usado para definir números de coluna e o eu nível de identação | **2** |
+| **indent_size** | Propriedade especial que deve ser especificado no topo de cada arquivo | **true** |
+| **charset** | Controla a formatação de caractere | **utf-8** |
+| **trim_trailing_whitespace** | Remove espaços em branco precendendo a quebra de linhas | **true** |
+| **insert_final_newline** | Assegura que o arquivo termine com uma linha em branco a mais | **true** |
+Veja [aqui](https://gist.github.com/brunodmsi/dab434892e77cebb4b76562edc27782e) o arquivo padrão do EditorConfig.
+
+### Style Guide da AirBnb
+Esta é a parte final sobre a padronização de sintaxe, mas não menos importante. Style guides são sets de padrões de como os códigos devem ser escritos e organizados, e o Airbnb tem uns dos mais populares styles guides de JavaScript.
+
+### Conclusão de Sintaxe
+Juntando todas estas regras em um código só, veja [aqui](https://gist.github.com/brunodmsi/eadd45469a02833ec91df17079999a1d) como fica a configuração final de um arquivo de ESLint (formato .js), este é o padrão de estilização de sintaxe para todos os projetos do grupo.
 
