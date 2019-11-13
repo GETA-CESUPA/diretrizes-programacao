@@ -7,12 +7,12 @@ Os frameworks escolhidas como padrão para desenvolvimento foram:
 
 ### ReactJS e React Native
 Gerenciado pelo Facebook, Instagram e uma grande comunidade de empresas e desenvolvedores, o React é um dos frameworks mais procurados. De acordo com a análise JavaScript, o React está sendo utilizado em sites como Walmart, Netflix e Airbnb.
-Ele oferece websites com alto desempenho e escalabilidade. React garante até reusabilidade de código, permitindo aos desenvolvedores otimizar seu tempo na criação de códigos. Também otimiza o SEO da sua aplicação web. Embora o conceito de React ainda seja novo, ele está amadurecendo rapidamente, e o Facebook planeja continuar investindo nele.
+Ele oferece websites com alto desempenho e escalabilidade. React garante até reusabilidade de código, permitindo aos desenvolvedores otimizar seu tempo na criação de códigos. 
 Além disso, ele é simples por causa da sua abordagem por componentização, o ciclo de vida bem definido e o uso simplificado do JavaScript torna o React muito fácil de aprender. Tem alto suporte para data binding, ou seja, usa ligação de dados unidirecional e uma arquitetura de aplicação chamada Flux, que controla o fluxo de dados para os componentes por meio de um ponto de controlo – o dispatcher. É mais fácil depurar componentes independentes de grandes aplicações React.js.
 Lembrando que são dois frameworks diferentes (apesar de muito similares), sendo um específico para web (ReactJS) e o outro para aplicações mobile (React Native) tanto para o sistema operacional Android e iOS.
 
 ### Node.js
-É uma plataforma back-end construída em cima do motor de interpretação de Javascript do Chrome, chamado V8 que, por sua vez, foi construído utilizando C++, que permite executarmos scripts Javascript no lado do servidor.
+É uma plataforma back-end construída em cima do motor de interpretação de Javascript do Chrome, chamado V8 que, que permite executarmos scripts Javascript no lado do servidor.  
 Agora, de forma fácil, o NodeJS te permite utilizar Javascript do lado do servidor, assim você pode acessar bancos de dados, fornecer dados através de uma API ou realizar qualquer outra operação de linguagens back-end como PHP e Ruby.
 É extremamente simples de ser usado, é possível rodar um servidor completamente funcional com apenas uma página de códigos. Existe DIVERSAS bibliotecas para expandir o uso e possibilitar com que o desenvolvedor foque apenas na regra de negócio da sua aplicação, e instalar libs de terceiros para reuso.
 
@@ -46,19 +46,39 @@ Tem a possibilidade de uma alta integração com linters (como o próprio ESLint
 
 ### EditorConfig
 Para ser usada diretamente no VSCode, consta com algumas configurações que ajudam a manter uma consistência para múltiplos desenvolvedores trabalhando em um mesmo projeto independente da sua IDE. A configuração padrão usada pelos projetos do GETA são:
-| Configuração | Descrição | Valor usado |
-| --- | --- | --- |
-| **root** | Propriedade especial que deve ser especificado no topo de cada arquivo | **true** |
-| **indent_style** | Número usado para definir números de coluna e o eu nível de identação | **2** |
-| **indent_size** | Propriedade especial que deve ser especificado no topo de cada arquivo | **true** |
-| **charset** | Controla a formatação de caractere | **utf-8** |
-| **trim_trailing_whitespace** | Remove espaços em branco precendendo a quebra de linhas | **true** |
-| **insert_final_newline** | Assegura que o arquivo termine com uma linha em branco a mais | **true** |
+| Configuração | Descrição |
+| --- | --- |
+| **root** | Propriedade especial que deve ser especificado no topo de cada arquivo. _Valor padrão: true_ |
+| **indent_style** | Número usado para definir colunas e o nível de identação. _Valor padrão: 2_ |
+| **indent_size** | Especifica em que formato a identação é feita, se é em "tab" ou "space". _Valor padrão: space_  |
+| **charset** | Controla a formatação de caractere. _Valor padrão: utf-8_ |
+| **trim_trailing_whitespace** | Remove espaços em branco precendendo a quebra de linhas. _Valor padrão: true_ |
+| **insert_final_newline** | Assegura que o arquivo termine com uma linha em branco a mais. _Valor padrão: true_ |
 Veja [aqui](https://gist.github.com/brunodmsi/dab434892e77cebb4b76562edc27782e) o arquivo padrão do EditorConfig.
 
 ### Style Guide da AirBnb
 Esta é a parte final sobre a padronização de sintaxe, mas não menos importante. Style guides são sets de padrões de como os códigos devem ser escritos e organizados, e o Airbnb tem uns dos mais populares styles guides de JavaScript.
 
-### Conclusão de Sintaxe
-Juntando todas estas regras em um código só, veja [aqui](https://gist.github.com/brunodmsi/eadd45469a02833ec91df17079999a1d) como fica a configuração final de um arquivo de ESLint (formato .js), este é o padrão de estilização de sintaxe para todos os projetos do grupo.
+### Como é feito a instalação disto tudo?
+Para começar, você já deve ter instalado antes as seguintes extensões no VSCode: `ESLint, Prettier e EditorConfig`.  
+Instale a seguinte dependência como uma de desenvolvimento usando `npm`:
+```sh
+npm install --save-dev eslint
+```
+ou você pode usar `yarn` (que é o mais recomendado por ser mais eficaz):
+```
+yarn add eslint -D
+```
+
+Após finalizada a instalação, você pode fazer a configuração, começando-a com o comando:
+```sh
+yarn eslint --init
+```
+Irá aparecer uma tela perguntando como você gostaria de usar o ESLint, e nesta você irá selecionar a última opção usando a seta do teclado, a última é a escolhida pois supre todas as nossas necessidades para fazer o ciclo completo de checar a sintaxe, achar os problemas e reforçar a estilização do código:
+```sh
+? How would you like to use ESLint?
+  To check syntax only
+  To check syntax and find problems
+> To check syntax, find problems, and enforce code style
+```
 
