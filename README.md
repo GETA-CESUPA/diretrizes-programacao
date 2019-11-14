@@ -1,10 +1,10 @@
 <br />
 <p align="center">
   <a href="http://geta.tk">
-    <img src="https://i.imgur.com/hXaAYMr.png" alt="Logo" width="300">
+    <img src="https://i.imgur.com/hXaAYMr.png" alt="Logo" width="450">
   </a>
 
-  <h3 align="center">Padronização de Códigos e Tecnologias do Grupo de Estudos em Tecnologia Assistiva</h3>
+  <h3 align="center">Padronização de Códigos e Tecnologias do GETA</h3>
 </p>
 
 ## Tabela de conteúdo
@@ -15,12 +15,13 @@
   - [ReactJS e React Native](#reactjs-e-react-native)
     - [Instalação](#instalação-1)
     - [Como criar um projeto?](#como-criar-um-projeto)
+- [Visual Studio Code (VSCode)](#visual-studio-code-vscode)
 - [Padronização de Sintaxe](#padronização-de-sintaxe)
   - [ESLint](#eslint)
   - [Prettier](#prettier)
   - [EditorConfig](#editorconfig)
   - [Como é feito a instalação disto tudo?](#como-é-feito-a-instalação-disto-tudo)
-    - [Configuração do ESLint](#configuração-do-eslint)
+    - [Configuração do ESLint e Prettier](#configuração-do-eslint-e-prettier)
 
 ---
 
@@ -94,7 +95,20 @@ Lembrando que são dois frameworks diferentes (apesar de muito similares), sendo
 - React.js
   - Usando `yarn` rode `yarn create react-app <nome_do_projeto>`
 
----
+## Visual Studio Code (VSCode)
+O [VSCode](https://github.com/microsoft/vscode) é um editor de código-fonte desenvolvido pela Microsoft para Windows, macOS e Linux. Ele inclui suporte para depuração, controle Git incorporado, realce de sintaxe, complementação inteligente de código, snippets e refatoração de código. Você pode baixa-lo [aqui](https://code.visualstudio.com/download).   
+Nele há algumas configurações de preparação para as regras que vão entrar na próxima seção de [Padronização de Sintaxe](#padronização-de-sintaxe), a tabela abaixo mostra as extensões que estão disponíveis e que vão nos ajudar durante o desenvolvimento de todos os projetos de diferentes formas.
+
+Extensão | Descrição | Utilidade | _Obrigatório_ 
+--- | --- | --- | ---
+**ESLint** | Integra o ESLint com o VSCode | Alta | _Sim_
+**Prettier** | Formatador de código | Alta | _Sim_
+**EditorConfig** | Sobrescreve arquivos com configs achadas em um `.editorconfig` | Alta | _Sim_
+**Dracula Official** | Tema escuro para a IDE, _preferência do autor_ | Baixa | _Não_
+**Color Highlight** | Da um preview das cores sejam elas em hex, rgba. | Alta | _Não_ 
+**vscode-icons** | Icones para o VSCode | Baixa | _Não_
+**Rocketseat React JS e Native** | Atalhos para construção dos componentes | Média | _Não_
+**vscode-styled-components** | Destaque de sintaxe para a biblioteca de **styled-components** | Média | _Não_
 
 ## Padronização de Sintaxe
 É a forma de lidar com a mesma estilização de um código dentro dos arquivos, e para isso temos várias bibliotecas em JavaScript para nos ajudar a criar um padrão para uma empresa, entre elas temos:
@@ -170,7 +184,7 @@ e é após esta entrada que vai depender para qual biblioteca você está config
 
 para entrar na configuração execute o comando `yarn eslint --init`
 
-#### Configuração do ESLint
+#### Configuração do ESLint e Prettier
 1. Na primeira pergunta sobre como usar o ESLint selecione `To check syntax, find problems, and enforce code style`;
 2. Seleciona que usa os modulos nativos de JavaScript: `JavaScript modules (import/export)`;
 3. Which framework does your project use? (Use as setas do teclado)
