@@ -1,7 +1,7 @@
 <br />
 <p align="center">
   <a href="http://geta.tk">
-    <img src="https://i.imgur.com/hXaAYMr.png" alt="Logo">
+    <img src="https://i.imgur.com/hXaAYMr.png" alt="Logo" width="300">
   </a>
 
   <h3 align="center">Padronização de Códigos e Tecnologias do Grupo de Estudos em Tecnologia Assistiva</h3>
