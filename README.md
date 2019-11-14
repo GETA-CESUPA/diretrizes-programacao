@@ -303,3 +303,32 @@ para entrar na configuração execute o comando `yarn eslint --init`
 10. Será então instalado todas as dependências necessárias, mas agora você precisará instalar algumas dependências a mais, para isso veja a seção do [Prettier](#prettier) e baixe as que estão referenciadas lá.
 11. Você notará que existe na raiz do seu projeto um arquivo chamado `.eslintrc.js`, e nele você irá usar a mesma configuração que está contida neste [gist](https://gist.github.com/brunodmsi/eadd45469a02833ec91df17079999a1d)
 12. Para manter a padronização mais fiel ainda, você pode criar na raiz do seu projeto um arquivo chamado `.prettierrc`, e dentro dele inserir este outro [gist](https://gist.github.com/brunodmsi/e78c1fdc0451c18a08a2207041f2e22a) para deixar as aspas simples e ativar a estilização das virgulas apenas em objetos, arrays, etc.
+
+## Estrutura de Arquivos
+Além de todas essas padronizações, também seguimos uma ordem de estruturação dos arquivos e pastas dentro dos projetos, ele varia um pouco de acordo com o framework que está usado para o desenvolvimento, mas a ideia permanece a mesma entre as mesmas.
++ Node.js
+```
+├── src/
+│   ├── app/
+│   │   └── controllers
+│   │   └── middlewares
+│   │   └── models
+│   ├── config/
+│   ├── database/
+│   │   └── migrations/
+│   ├── app.js
+│   ├── routes.js
+│   └── server.js
+├── .editorconfig
+├── .eslintrc.js
+├── .gitignore
+├── .env.example
+├── .prettierrc
+├── .sequelizerc
+├── nodemon.json
+├── package.json
+└── README.md
+```
+
+## Autoria
+Documentação escrita e desenvolvida pelo integrante [Bruno De Masi](https://github.com/brunodmsi).
