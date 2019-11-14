@@ -101,7 +101,7 @@ Dependência | Descrição
 [eslint-config-airbnb](https://github.com/airbnb/javascript/tree/master/packages/eslint-config-airbnb) | Este pacote fornece o .eslintrc do Airbnb como uma configuração compartilhada extensível
 [eslint-plugin-import](https://github.com/benmosher/eslint-plugin-import) | Plugin do ESLint com regras para ajudar na validação de imports
 [eslint-plugin-jsx-a11y](https://github.com/evcohen/eslint-plugin-jsx-a11y) | Verificador estático AST das regras do a11y em elementos JSX
-[eslint-plugin-react](https://github.com/yannickcr/eslint-plugin-react) - Regras de linting do ESLint específicas do React
+[eslint-plugin-react](https://github.com/yannickcr/eslint-plugin-react) | Regras de linting do ESLint específicas do React
 [eslint-plugin-react-native](https://github.com/Intellicode/eslint-plugin-react-native) | Regras de linting do ESLint específicas do React Native
 [eslint-import-resolver-babel-plugin-root-import](https://github.com/olalonde/eslint-import-resolver-babel-root-import) | Um resolver da lib _babel-root-import_ para a lib _eslint-plugin-import_
 
@@ -113,7 +113,7 @@ Tem a possibilidade de uma alta integração com linters (como o próprio ESLint
 
 | Depêndencia | Descrição |
 | --- | --- |
-| **[prettier](https://github.com/prettier/prettier)** | A sua biblioteca no Github |
+| **[prettier](https://github.com/prettier/prettier)** | Repositório do próprio no Github |
 | **[eslint-config-prettier](https://github.com/prettier/eslint-config-prettier)** | Desativa todas as regras que são desnecessárias ou que podem dar conflito com o Prettier |
 | **[eslint-plugin-prettier](https://github.com/prettier/eslint-plugin-prettier)** | Roda o Prettier como uma regra do ESLint |
 
@@ -123,7 +123,7 @@ Tem a possibilidade de uma alta integração com linters (como o próprio ESLint
 Para ser usada diretamente no VSCode, consta com algumas configurações que ajudam a manter uma consistência para múltiplos desenvolvedores trabalhando em um mesmo projeto independente da sua IDE. A configuração padrão usada pelos projetos do GETA são:
 
 Configuração | Descrição | Valor usado
---- | --- | 
+--- | --- | ---
 **root** | Propriedade especial que deve ser especificado no topo de cada arquivo. | true
 **indent_style** | Número usado para definir colunas e o nível de identação. | 2 
 **indent_size** | Especifica em que formato a identação é feita, se é em "tab" ou "space". | space
@@ -162,15 +162,39 @@ Pressione `ENTER` e selecione a primeira opção das próximas que aparecerem
 
 e é após esta entrada que vai depender para qual biblioteca você está configurando o **ESLint** 
 
+para entrar na configuração execute o comando `yarn eslint --init`
+
 #### Configuração do ESLint
-- Node.js
-  1. Selecione `None of these`;
-  2. Insira `N` para a pergunta sobre TypeScript;
-  3. Agora usando as setas do teclado e o espaço, você vai deselecionar a opção `Browser` com o **ESPAÇO**, ir para baixo em `Node` e pressionar **ESPAÇO** novamente para selecionar;
-  4. Selecione `Use a popular style guide`
-  5. Selecione o style guide do Airbnb (deve ser o primeiro)
-  6. E pro formato de arquivo de configuração do ESLint, selecione JavaScript]
-  7. Você vai ser perguntado se quer instalar os pacotes necessários, digite `Y ou S`
-  8. Será então instalado todas as dependências necessárias, mas agora você precisará instalar algumas dependências a mais, para isso veja a seção do [Prettier](#prettier) e baixe as que estão referenciadas lá.
-  9. Você notará que existe na raiz do seu projeto um arquivo chamado `.eslintrc.js`, e nele você irá usar a mesma configuração que está contida neste [gist](https://gist.github.com/brunodmsi/eadd45469a02833ec91df17079999a1d)
-  10. Para manter a padronização mais fiel ainda, você pode criar na raiz do seu projeto um arquivo chamado `.prettierrc`, e dentro dele inserir este outro [gist](https://gist.github.com/brunodmsi/e78c1fdc0451c18a08a2207041f2e22a) para deixar as aspas simples e ativar a estilização das virgulas apenas em objetos, arrays, etc.
+1. Na primeira pergunta sobre como usar o ESLint selecione `To check syntax, find problems, and enforce code style`;
+
+2. Seleciona que usa os modulos nativos de JavaScript: `JavaScript modules (import/export)`;
+
+3. Which framework does your project use? (Use as setas do teclado)
+  - React.js e React Native
+    + Selecione `React`
+  - Node.js
+    + Selecione `None of these`
+
+4. Insira `N` para a pergunta se o projeto usa TypeScript;
+
+5. Onde seu código roda? *(Use espaço para selecionar, setas para navegar e ENTER para confirmar)*
+  - React.js 
+    + Selecione `Browser`
+  - Node.js
+    + Selecione `Node`
+  - React Native
+    + Deixe os dois deselecionados e confirme
+
+6. Selecione `Use a popular style guide` para definir o estilo do projeto;
+
+7. Selecione o style guide do Airbnb (deve ser o primeiro);
+
+8. E pro formato de arquivo de configuração do ESLint, selecione JavaScript;
+
+9. Você vai ser perguntado se quer instalar os pacotes necessários, digite `Y ou S`
+
+10. Será então instalado todas as dependências necessárias, mas agora você precisará instalar algumas dependências a mais, para isso veja a seção do [Prettier](#prettier) e baixe as que estão referenciadas lá.
+
+11. Você notará que existe na raiz do seu projeto um arquivo chamado `.eslintrc.js`, e nele você irá usar a mesma configuração que está contida neste [gist](https://gist.github.com/brunodmsi/eadd45469a02833ec91df17079999a1d)
+
+12. Para manter a padronização mais fiel ainda, você pode criar na raiz do seu projeto um arquivo chamado `.prettierrc`, e dentro dele inserir este outro [gist](https://gist.github.com/brunodmsi/e78c1fdc0451c18a08a2207041f2e22a) para deixar as aspas simples e ativar a estilização das virgulas apenas em objetos, arrays, etc.
