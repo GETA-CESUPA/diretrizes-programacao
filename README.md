@@ -6,6 +6,47 @@ A linguagem adotada pelo grupo é JavaScript, por simples motivos como: estar em
 
 Os frameworks escolhidas como padrão para desenvolvimento foram:
 
+### Node.js
+É uma plataforma back-end construída em cima do motor de interpretação de Javascript do Chrome, chamado V8 que, que permite executarmos scripts Javascript no lado do servidor.  
+
+Agora, de forma fácil, o NodeJS te permite utilizar Javascript do lado do servidor, assim você pode acessar bancos de dados, fornecer dados através de uma API ou realizar qualquer outra operação de linguagens back-end como PHP e Ruby.   
+
+É extremamente simples de ser usado, é possível rodar um servidor completamente funcional com apenas uma página de códigos. Existe DIVERSAS bibliotecas para expandir o uso e possibilitar com que o desenvolvedor foque apenas na regra de negócio da sua aplicação, e instalar libs de terceiros para reuso.
+   
+A instalação dessa plataforma é necessária tanto para a parte back-end quanto para a front-end (que será discutida logo no próximo tópico)
+- Para Windows é bem simples, basta baixar o Node do link abaixo, já vem incluso nele o NPM (que é o Package Manager do Node)
+  - [Node v12.13.0](https://nodejs.org/dist/v12.13.0/node-v12.13.0-x64.msi)
+- Para Ubuntu/Debian, você pode rodar o seguinte comando: (talvez haja a necessidade de adicionar `sudo` no começo):
+  - `apt-get install node`
+  - `apt-get install npm`
+  - Siga esta ordem, após isso você pode checar se a instalação foi um sucesso rodando os comandos:
+    - `node -v`
+      - Resposta esperada `v12.13.0`
+    - `npm -v`
+      - Resposta esperada `v6.9.0 (ou similar)`
+
+#### Criando seu primeiro servidor
+Crie uma pasta e dentro dela escreva `yarn init -y` e entre as configurações que pedir, após isso você pode criar um arquivo com nome qualquer, para este exemplo vou usar `server.js`.   
+
+Junto disto eu vou adicionar a primeira depêndencia (e a mais importante em um projeto back-end no Node):   
+
+```yarn add express```
+em seguida é só escrever o seguinte código no seu `server.js`:    
+
+```javascript
+  const express = require('express') // pega a dependencia que você acabou de instalar
+  const app = express() // inicializa a dependencia
+
+  app.get('/', (req, res) => { // seta uma rota onde se recebe um request e um response
+    res.send('Hello World') // envia como resposta para quem acessar
+  })
+
+  app.listen(3000) // inicia o servidor
+```
+Com apenas 6 linhas de código é possível ter um servidor de pé com a ajuda da poderosíssima ferramenta [Express](https://github.com/expressjs/express) que da uma robusta interface para lidar com requisições HTTP sem precisar de muitas configurações.
+
+---
+
 ### ReactJS e React Native
 Gerenciado pelo Facebook, Instagram e uma grande comunidade de empresas e desenvolvedores, o React é um dos frameworks mais procurados. De acordo com a análise JavaScript, o React está sendo utilizado em sites como Walmart, Netflix e Airbnb.    
 
@@ -15,37 +56,19 @@ Além disso, ele é simples por causa da sua abordagem por componentização, o 
 
 Lembrando que são dois frameworks diferentes (apesar de muito similares), sendo um específico para web (ReactJS) e o outro para aplicações mobile (React Native) tanto para o sistema operacional Android e iOS.
 
-##### Instalação
+#### Instalação
 - React Native
   - Usando `npm` rode o comando `npm install -g react-native-cli`
   - Usando `yarn` rode o comando `yarn add global react-native-cli`
 - React.js
   - Este já vem instalado junto com a instalação do NPM
 
-##### Como criar um projeto?
+#### Como criar um projeto?
 - React Native
   - Usando `npx (este é um package-runner que já vem junto da instalação do NPM` rode `npx create-react-app <nome_do_projeto>`
   - Usando `yarn` rode `yarn create react-app <nome_do_projeto>`
 
 ---
-
-### Node.js
-É uma plataforma back-end construída em cima do motor de interpretação de Javascript do Chrome, chamado V8 que, que permite executarmos scripts Javascript no lado do servidor.  
-Agora, de forma fácil, o NodeJS te permite utilizar Javascript do lado do servidor, assim você pode acessar bancos de dados, fornecer dados através de uma API ou realizar qualquer outra operação de linguagens back-end como PHP e Ruby.
-É extremamente simples de ser usado, é possível rodar um servidor completamente funcional com apenas uma página de códigos. Existe DIVERSAS bibliotecas para expandir o uso e possibilitar com que o desenvolvedor foque apenas na regra de negócio da sua aplicação, e instalar libs de terceiros para reuso.
-
-Exemplo da simplicidade de criar um servidor:
-```javascript
-  const express = require('express')
-  const app = express()
-
-  app.get('/', (req, res) => {
-    res.send('Hello World')
-  })
-
-  app.listen(3000)
-```
-Com apenas 6 linhas de código é possível ter um servidor de pé com a ajuda da poderosíssima ferramenta [Express](https://github.com/expressjs/express) que da uma robusta interface para lidar com requisições HTTP sem precisar de muitas configurações.
 
 ## Padronização de Sintaxe
 É a forma de lidar com a mesma estilização de um código dentro dos arquivos, e para isso temos várias bibliotecas em JavaScript para nos ajudar a criar um padrão para uma empresa, entre elas temos:
