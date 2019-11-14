@@ -1,5 +1,11 @@
-# Padronização de Códigos e Tecnologias do Grupo de Estudos em Tecnologia Assistiva (GETA)
-Este documento é responsável por prover as informações relacionadas à padronização de quais tecnologias são usadas, e dentro delas as formatações padrões que são usadas para as mesmas.
+<br />
+<p align="center">
+  <a href="http://geta.tk">
+    <img src="/assets/logo.png" alt="Logo">
+  </a>
+
+  <h3 align="center">Padronização de Códigos e Tecnologias do Grupo de Estudos em Tecnologia Assistiva</h3>
+</p>
 
 ## Tabela de conteúdo
 - [Tecnologias](#tecnologias)
@@ -166,17 +172,13 @@ para entrar na configuração execute o comando `yarn eslint --init`
 
 #### Configuração do ESLint
 1. Na primeira pergunta sobre como usar o ESLint selecione `To check syntax, find problems, and enforce code style`;
-
 2. Seleciona que usa os modulos nativos de JavaScript: `JavaScript modules (import/export)`;
-
 3. Which framework does your project use? (Use as setas do teclado)
   - React.js e React Native
     + Selecione `React`
   - Node.js
     + Selecione `None of these`
-
 4. Insira `N` para a pergunta se o projeto usa TypeScript;
-
 5. Onde seu código roda? *(Use espaço para selecionar, setas para navegar e ENTER para confirmar)*
   - React.js 
     + Selecione `Browser`
@@ -184,17 +186,10 @@ para entrar na configuração execute o comando `yarn eslint --init`
     + Selecione `Node`
   - React Native
     + Deixe os dois deselecionados e confirme
-
 6. Selecione `Use a popular style guide` para definir o estilo do projeto;
-
 7. Selecione o style guide do Airbnb (deve ser o primeiro);
-
 8. E pro formato de arquivo de configuração do ESLint, selecione JavaScript;
-
-9. Você vai ser perguntado se quer instalar os pacotes necessários, digite `Y ou S`
-
+9. Você vai ser perguntado se quer instalar os pacotes necessários, digite `Y ou S`\
 10. Será então instalado todas as dependências necessárias, mas agora você precisará instalar algumas dependências a mais, para isso veja a seção do [Prettier](#prettier) e baixe as que estão referenciadas lá.
-
 11. Você notará que existe na raiz do seu projeto um arquivo chamado `.eslintrc.js`, e nele você irá usar a mesma configuração que está contida neste [gist](https://gist.github.com/brunodmsi/eadd45469a02833ec91df17079999a1d)
-
 12. Para manter a padronização mais fiel ainda, você pode criar na raiz do seu projeto um arquivo chamado `.prettierrc`, e dentro dele inserir este outro [gist](https://gist.github.com/brunodmsi/e78c1fdc0451c18a08a2207041f2e22a) para deixar as aspas simples e ativar a estilização das virgulas apenas em objetos, arrays, etc.
