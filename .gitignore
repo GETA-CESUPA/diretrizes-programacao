@@ -1,5 +1,8 @@
 *
 
 !README.md
-!assets/*
 !.gitignore
+
+!assets/logo.png
+!/assets/*
+!assets/*
