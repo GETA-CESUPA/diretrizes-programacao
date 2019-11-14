@@ -138,11 +138,9 @@ Isto é necessário pois por padrão o Nodemon executa rodando o Babel como comp
 E agora, você pode adicionar no seu `package.json` a seção de scripts onde você irá inserir um scriptzinho para rodar o seu nodemon (isto não é necessário mas é indicado por usabilidade):
 ```json
 {
-  // ...
   "scripts": {
     "dev": "nodemon src/server.js"
   },
-  // ...
 }
 ```
 E agora no seu terminal você pode rodar `yarn dev` e ele vai reconhecer *dev* como se fosse o comando de execução do nodemon `nodemon src/server.js`, isso facilita na hora de rodar o projeto (novamente, não é necessário, porém indicado). 
@@ -155,14 +153,10 @@ Normalmente, você rodaria os projetos com Node (em produção) usando o comando
 Então, no arquivo `package.json`, iremos fazer mais umas adições na parte de **scripts**:
 ```json
 {
-  // ...
   "scripts": {
-    // ...
       "build": "sucrase ./src -d ./dist --transforms imports",
       "start": "node dist/server.js"
-    // ...
   }
-  // ...
 }
 ```
 
