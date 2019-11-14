@@ -53,6 +53,9 @@ A instalação dessa plataforma é necessária tanto para a parte back-end quant
       - Resposta esperada `v12.13.0`
     - `npm -v`
       - Resposta esperada `v6.9.0 (ou similar)`
+- É recomendado que você instale outro package manager disponível para Node que tem uma estabilidade melhor, facilidade de uso maior e uma velocidade aprimorada, este é o `yarn`, você pode instalar ele usando o próprio `npm`:
+  - `npm install -g yarn`
+  - Agora você pode usar o `yarn` para instalar suas dependências ao invés do `npm`
 
 ---
 
@@ -192,14 +195,14 @@ Nele há algumas configurações de preparação para as regras que vão entrar 
 
 Extensão | Descrição | Utilidade | _Obrigatório_ 
 --- | --- | --- | ---
-**ESLint** | Integra o ESLint com o VSCode | Alta | _Sim_
-**Prettier** | Formatador de código | Alta | _Sim_
-**EditorConfig** | Sobrescreve arquivos com configs achadas em um `.editorconfig` | Alta | _Sim_
-**Dracula Official** | Tema escuro para a IDE, _preferência do autor_ | Baixa | _Não_
-**Color Highlight** | Da um preview das cores sejam elas em hex, rgba. | Alta | _Não_ 
-**vscode-icons** | Icones para o VSCode | Baixa | _Não_
-**Rocketseat React JS e Native** | Atalhos para construção dos componentes | Média | _Não_
-**vscode-styled-components** | Destaque de sintaxe para a biblioteca de **styled-components** | Média | _Não_
+**[ESLint](https://marketplace.visualstudio.com/items?itemName=dbaeumer.vscode-eslint)** | Integra o ESLint com o VSCode | Alta | _Sim_
+**[Prettier](https://marketplace.visualstudio.com/items?itemName=esbenp.prettier-vscode)** | Formatador de código | Alta | _Sim_
+**[EditorConfig](https://marketplace.visualstudio.com/items?itemName=EditorConfig.EditorConfig)** | Sobrescreve arquivos com configs achadas em um `.editorconfig` | Alta | _Sim_
+**[Dracula Official](https://marketplace.visualstudio.com/items?itemName=dracula-theme.theme-dracula)** | Tema escuro para a IDE, _preferência do autor_ | Baixa | _Não_
+**[Color Highlight](https://marketplace.visualstudio.com/items?itemName=naumovs.color-highlight)** | Da um preview das cores sejam elas em hex, rgba. | Alta | _Não_ 
+**[vscode-icons](https://marketplace.visualstudio.com/items?itemName=vscode-icons-team.vscode-icons)** | Icones para o VSCode | Baixa | _Não_
+**Rocketseat [React JS](https://marketplace.visualstudio.com/items?itemName=rocketseat.RocketseatReactJS) e [Native](https://marketplace.visualstudio.com/items?itemName=rocketseat.RocketseatReactNative)** | Atalhos para construção dos componentes | Média | _Não_
+**[vscode-styled-components](https://marketplace.visualstudio.com/items?itemName=jpoissonnier.vscode-styled-components)** | Destaque de sintaxe para a biblioteca de **styled-components** | Média | _Não_
 
 Além das extensões para melhor usabilidade da IDE, é possível no próprio VSCode fazer configurações de preferências de estilização, para saber mais sobre, visite a [documentação oficial](https://vscode.readthedocs.io/en/latest/getstarted/settings/) do VSCode para essas configurações. Caso você não se sinta com paciência para configurar à mão, você pode sempre usar a mesma config do autor, encontrada neste [gist](https://gist.github.com/brunodmsi/9443fa2fcef1cb215b043259c1311105).
 
@@ -244,7 +247,7 @@ Configuração | Descrição | Valor usado
 **trim_trailing_whitespace** | Remove espaços em branco precendendo a quebra de linhas. | true
 **insert_final_newline** | Assegura que o arquivo termine com uma linha em branco a mais. | true
 
-Veja [aqui](https://gist.github.com/brunodmsi/dab434892e77cebb4b76562edc27782e) o arquivo padrão do EditorConfig.
+Veja [aqui](https://gist.github.com/brunodmsi/dab434892e77cebb4b76562edc27782e) o arquivo padrão do EditorConfig indicado pelo autor. Você pode ver também a página oficial do [EditorConfig](https://editorconfig.org/) para ver todas as opções disponíveis
 
 ---
 
