@@ -25,6 +25,11 @@
   - [EditorConfig](#editorconfig)
   - [Como é feito a instalação disto tudo?](#como-é-feito-a-instalação-disto-tudo)
     - [Configuração do ESLint e Prettier](#configuração-do-eslint-e-prettier)
+- [Estrutura de Arquivos](#estrutura-de-arquivos)
+  - [Node.js](#node-js-1)
+  - [React.js](#react-js)
+  - [React Native](#react-native)
+- [Autoria](#autoria)
 
 ---
 
@@ -306,7 +311,8 @@ para entrar na configuração execute o comando `yarn eslint --init`
 
 ## Estrutura de Arquivos
 Além de todas essas padronizações, também seguimos uma ordem de estruturação dos arquivos e pastas dentro dos projetos, ele varia um pouco de acordo com o framework que está usado para o desenvolvimento, mas a ideia permanece a mesma entre as mesmas.
-+ Node.js
+
+### Node.js
 ```
 ├── src/
 │   ├── app/
@@ -329,6 +335,41 @@ Além de todas essas padronizações, também seguimos uma ordem de estruturaç�
 ├── package.json
 └── README.md
 ```
+---
+
+### React.js
+```
+├── public/
+│   ├── index.html
+├── src/
+│   ├── assets/
+│   ├── pages/
+│   │   └── Main/
+│   │       └── index.js
+│   │       └── styles.js
+│   ├── config/
+│   │       └── ReactotronConfig.js
+│   ├── components/
+│   ├── routes/
+│   ├── styles/
+│   ├── store/
+│   ├── services/
+│   │   └── api.js
+│   ├── App.js
+│   ├── index.js
+├── .editorconfig
+├── .eslintrc.js
+├── .gitignore
+├── .env.example
+├── jsconfig.json
+├── .config-overrides
+├── package.json
+├── yarn.lock 
+└── README.md
+```
+---
+
+### React Native
 
 ## Autoria
 Documentação escrita e desenvolvida pelo integrante [Bruno De Masi](https://github.com/brunodmsi).
