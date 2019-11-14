@@ -1,6 +1,21 @@
 # Padronização de Códigos e Tecnologias do Grupo de Estudos em Tecnologia Assistiva (GETA)
 Este documento é responsável por prover as informações relacionadas à padronização de quais tecnologias são usadas, e dentro delas as formatações padrões que são usadas para as mesmas.
 
+## Tabela de conteúdo
+- Tecnologias [#tecnologias]
+  - Node.js [#node-js]
+    - Instalação [#instalação-node]
+    - Criando seu primeiro servidor [#criando-seu-primeiro-servidor]
+  - ReactJS e React Native [#reactjs-e-react-native]
+    - Instalação [#instalação-react]
+    - Como criar um projeto? [#como-criar-um-projeto]
+- Padronização de Sintaxe [#padronização-de-sintaxe]
+  - ESLint [#eslint]
+  - Prettier [#prettier]
+  - EditorConfig [#editorconfig]
+  - Style Guide (Airbnb) [#style-guide-airbnb]
+  - Como é feito a instalação disto tudo? [#como-é-feito-a-instalação-disto-tudo]
+
 ## Tecnologias
 A linguagem adotada pelo grupo é JavaScript, por simples motivos como: estar em constante crescimento, estar alinhada com o mercado, bibliotecas e frameworks em constante expansão e melhorias, além de ter uma curva de aprendizado fácil e descomplicada.    
 
@@ -12,7 +27,9 @@ Os frameworks escolhidas como padrão para desenvolvimento foram:
 Agora, de forma fácil, o NodeJS te permite utilizar Javascript do lado do servidor, assim você pode acessar bancos de dados, fornecer dados através de uma API ou realizar qualquer outra operação de linguagens back-end como PHP e Ruby.   
 
 É extremamente simples de ser usado, é possível rodar um servidor completamente funcional com apenas uma página de códigos. Existe DIVERSAS bibliotecas para expandir o uso e possibilitar com que o desenvolvedor foque apenas na regra de negócio da sua aplicação, e instalar libs de terceiros para reuso.
-   
+
+
+### Instalação
 A instalação dessa plataforma é necessária tanto para a parte back-end quanto para a front-end (que será discutida logo no próximo tópico)
 - Para Windows é bem simples, basta baixar o Node do link abaixo, já vem incluso nele o NPM (que é o Package Manager do Node)
   - [Node v12.13.0](https://nodejs.org/dist/v12.13.0/node-v12.13.0-x64.msi)
@@ -66,6 +83,7 @@ Lembrando que são dois frameworks diferentes (apesar de muito similares), sendo
 #### Como criar um projeto?
 - React Native
   - Usando `npx (este é um package-runner que já vem junto da instalação do NPM` rode `npx create-react-app <nome_do_projeto>`
+- React.js
   - Usando `yarn` rode `yarn create react-app <nome_do_projeto>`
 
 ---
@@ -105,7 +123,7 @@ Veja [aqui](https://gist.github.com/brunodmsi/dab434892e77cebb4b76562edc27782e) 
 
 ---
 
-### Style Guide da AirBnb
+### Style Guide (Airbnb)
 Esta é a parte final sobre a padronização de sintaxe, mas não menos importante. Style guides são sets de padrões de como os códigos devem ser escritos e organizados, e o Airbnb tem uns dos mais populares styles guides de JavaScript.
 
 ---
