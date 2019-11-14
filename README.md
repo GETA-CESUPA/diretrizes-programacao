@@ -4,14 +4,17 @@
     <img src="https://i.imgur.com/hXaAYMr.png" alt="Logo" width="450">
   </a>
 
-  <h3 align="center">Padronização de Códigos e Tecnologias do GETA</h3>
+  <h2 align="center">Padronização de Códigos e Tecnologias do GETA</h2>
 </p>
 
 ## Tabela de conteúdo
 - [Tecnologias](#tecnologias)
   - [Node.js](#node-js)
     - [Instalação](#instalação)
+    - [Sucrase](#sucrase)
     - [Criando seu primeiro servidor](#criando-seu-primeiro-servidor)
+    - [Nodemon](#nodemon)
+    - [Rodando Node com Sucrase](#rodando-node-com-sucrase)
   - [ReactJS e React Native](#reactjs-e-react-native)
     - [Instalação](#instalação-1)
     - [Como criar um projeto?](#como-criar-um-projeto)
@@ -51,6 +54,47 @@ A instalação dessa plataforma é necessária tanto para a parte back-end quant
     - `npm -v`
       - Resposta esperada `v6.9.0 (ou similar)`
 
+---
+
+#### Sucrase
+O Sucrase é um compilador de JS/TS que substitui o Babel (_compilador padrão do JavaScript_), e os motivos para isso são 2: o Sucrase é **mais rápido** que o Babel por usar versões mais recentes e otimizadas do JavaScript, ao contrário do Babel que usa versões muito antigas, outro motivo seria que por ser uma versão mais recente do JavaScript, a sintaxe usada também é mais recente fazendo com que o código fique similar aos aliados na stack de JS (React JS e Native), isso faz com que a identificação com os diferentes frameworks seja mais fácil.   
+
+Isso se deve pelo fato que o Babel usa a sintaxe de **CommonJS** que utiliza o modelo _require/exports_, já o Sucrase utiliza o mais recente nomeado de **EcmaScript modules** que utiliza _import/exports_
+
+pra botar na prática, olhe este exemplo de como os dois são usados para um mesmo código
++ **CommonJS (Babel)**
+```javascript
+// routes.js
+const { Router } = require('express');
+const routes = new Router();
+module.exports = routes;
+
+// server.js
+const express = require('express');
+const app = express();
+const routes = require('./routes');
+app.use(routes);
+app.listen(8080);
+```
++ **EcmaScript modules (Sucrase)**
+```javascript
+// routes.js
+import { Router } from 'express';
+const routes = new Router();
+export default routes;
+
+// server.js
+import express from 'express';
+import routes from './routes';
+
+const app = express();
+app.use(routes);
+app.listen(8080);
+```
+Bem simples, né? Para rodar um código usando sucrase existem umas configurações bem básicas de serem feitas, tanto para rodar em ambiente de desenvolvedor (ver na seção sobre [Nodemon](#nodemon)) quanto em [produção](#rodando-em-produção).
+
+---
+
 #### Criando seu primeiro servidor
 Crie uma pasta e dentro dela escreva `yarn init -y` e entre as configurações que pedir, após isso você pode criar um arquivo com nome qualquer, para este exemplo vou usar `server.js`.   
 
@@ -60,7 +104,7 @@ Junto disto eu vou adicionar a primeira depêndencia (e a mais importante em um 
 em seguida é só escrever o seguinte código no seu `server.js`:    
 
 ```javascript
-  const express = require('express') // pega a dependencia que você acabou de instalar
+  import express from 'express'; // pega a dependencia que você acabou de instalar
   const app = express() // inicializa a dependencia
 
   app.get('/', (req, res) => { // seta uma rota onde se recebe um request e um response
@@ -70,6 +114,59 @@ em seguida é só escrever o seguinte código no seu `server.js`:
   app.listen(3000) // inicia o servidor
 ```
 Com apenas 6 linhas de código é possível ter um servidor de pé com a ajuda da poderosíssima ferramenta [Express](https://github.com/expressjs/express) que da uma robusta interface para lidar com requisições HTTP sem precisar de muitas configurações.
+
+Veja as seções de [Nodemon](#nodemon) e [Rodando Node com Sucrase](#rodando-node-com-sucrase) para aprender à rodar um servidor em Node usando esta sintaxe.
+
+---
+
+#### Nodemon
+É uma dependência de desenvolvimento que vai monitorar por qualquer mudança no seu código-fonte e vai automaticamente reiniciar seu servidor para você já poder testar a mudança direto. Para ser instalado é bem simples, basta rodar
+```sh
+yarn add nodemon -D 
+```
+
+este `-D` indica que é para ser adicionado como um dependência de **desenvolvimento**, e para este ser usado junto com Sucrase é necessário fazer uma simples configuração, basta criar um arquivo na raiz do projeto com o nome de `nodemon.json` e inserir a seguinte configuração:
+```json
+{
+  "execMap": {
+    "js": "sucrase-node"
+  }
+}
+```
+Isto é necessário pois por padrão o Nodemon executa rodando o Babel como compilador, mas passando esta regra ele entende que o compilador que será usado para o projeto é o Sucrase.  
+
+E agora, você pode adicionar no seu `package.json` a seção de scripts onde você irá inserir um scriptzinho para rodar o seu nodemon (isto não é necessário mas é indicado por usabilidade):
+```json
+{
+  // ...
+  "scripts": {
+    "dev": "nodemon src/server.js"
+  },
+  // ...
+}
+```
+E agora no seu terminal você pode rodar `yarn dev` e ele vai reconhecer *dev* como se fosse o comando de execução do nodemon `nodemon src/server.js`, isso facilita na hora de rodar o projeto (novamente, não é necessário, porém indicado). 
+
+---
+
+#### Rodando Node com Sucrase
+Normalmente, você rodaria os projetos com Node (em produção) usando o comando `node src/server.js`, mas usando o compilador Sucrase isto muda um pouco, e iremos criar dois scripts (que nem fizemos no [Nodemon](#nodemon)), um será responsável por fazer o _build_ do código e transformar ele para __imports__ e o outro apenas para rodar o código buildado.  
+
+Então, no arquivo `package.json`, iremos fazer mais umas adições na parte de **scripts**:
+```json
+{
+  // ...
+  "scripts": {
+    // ...
+      "build": "sucrase ./src -d ./dist --transforms imports",
+      "start": "node dist/server.js"
+    // ...
+  }
+  // ...
+}
+```
+
+A ordem de execução é primeiro executar `yarn build` que fará toda a tradução do código usando sucrase, e salvando esta tradução numa nova pasta na raiz do projeto chamada _dist/_, após isso executar `yarn start` para rodar o `server.js` de dentro da pasta do **dist**, e pronto, seu código em Sucrase agora está rodando normalmente.
 
 ---
 
@@ -110,6 +207,8 @@ Extensão | Descrição | Utilidade | _Obrigatório_
 **Rocketseat React JS e Native** | Atalhos para construção dos componentes | Média | _Não_
 **vscode-styled-components** | Destaque de sintaxe para a biblioteca de **styled-components** | Média | _Não_
 
+Além das extensões para melhor usabilidade da IDE, é possível no próprio VSCode fazer configurações de preferências de estilização, para saber mais sobre, visite a [documentação oficial](https://vscode.readthedocs.io/en/latest/getstarted/settings/) do VSCode para essas configurações. Caso você não se sinta com paciência para configurar à mão, você pode sempre usar a mesma config do autor, encontrada neste [gist](https://gist.github.com/brunodmsi/9443fa2fcef1cb215b043259c1311105).
+
 ## Padronização de Sintaxe
 É a forma de lidar com a mesma estilização de um código dentro dos arquivos, e para isso temos várias bibliotecas em JavaScript para nos ajudar a criar um padrão para uma empresa, entre elas temos:
 
@@ -118,12 +217,12 @@ Extensão | Descrição | Utilidade | _Obrigatório_
 
 Dependência | Descrição
 --- | ---
-[eslint-config-airbnb](https://github.com/airbnb/javascript/tree/master/packages/eslint-config-airbnb) | Este pacote fornece o .eslintrc do Airbnb como uma configuração compartilhada extensível
-[eslint-plugin-import](https://github.com/benmosher/eslint-plugin-import) | Plugin do ESLint com regras para ajudar na validação de imports
-[eslint-plugin-jsx-a11y](https://github.com/evcohen/eslint-plugin-jsx-a11y) | Verificador estático AST das regras do a11y em elementos JSX
-[eslint-plugin-react](https://github.com/yannickcr/eslint-plugin-react) | Regras de linting do ESLint específicas do React
-[eslint-plugin-react-native](https://github.com/Intellicode/eslint-plugin-react-native) | Regras de linting do ESLint específicas do React Native
-[eslint-import-resolver-babel-plugin-root-import](https://github.com/olalonde/eslint-import-resolver-babel-root-import) | Um resolver da lib _babel-root-import_ para a lib _eslint-plugin-import_
+**[eslint-config-airbnb](https://github.com/airbnb/javascript/tree/master/packages/eslint-config-airbnb)** | Este pacote fornece o .eslintrc do Airbnb como uma configuração compartilhada extensível
+**[eslint-plugin-import](https://github.com/benmosher/eslint-plugin-import)** | Plugin do ESLint com regras para ajudar na validação de imports
+**[eslint-plugin-jsx-a11y](https://github.com/evcohen/eslint-plugin-jsx-a11y)** | Verificador estático AST das regras do a11y em elementos JSX
+**[eslint-plugin-react](https://github.com/yannickcr/eslint-plugin-react)** | Regras de linting do ESLint específicas do React
+**[eslint-plugin-react-native](https://github.com/Intellicode/eslint-plugin-react-native)** | Regras de linting do ESLint específicas do React Native
+**[eslint-import-resolver-babel-plugin-root-import](https://github.com/olalonde/eslint-import-resolver-babel-root-import)** | Um resolver da lib _babel-root-import_ para a lib _eslint-plugin-import_
 
 ---
 
@@ -147,7 +246,7 @@ Configuração | Descrição | Valor usado
 **root** | Propriedade especial que deve ser especificado no topo de cada arquivo. | true
 **indent_style** | Número usado para definir colunas e o nível de identação. | 2 
 **indent_size** | Especifica em que formato a identação é feita, se é em "tab" ou "space". | space
-**charset** | Controla a formatação de caractere. _Valor padrão: utf-8_
+**charset** | Controla a formatação de caractere. | utf-8
 **trim_trailing_whitespace** | Remove espaços em branco precendendo a quebra de linhas. | true
 **insert_final_newline** | Assegura que o arquivo termine com uma linha em branco a mais. | true
 
