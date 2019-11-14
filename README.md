@@ -2,19 +2,19 @@
 Este documento é responsável por prover as informações relacionadas à padronização de quais tecnologias são usadas, e dentro delas as formatações padrões que são usadas para as mesmas.
 
 ## Tabela de conteúdo
-- Tecnologias [#tecnologias]
-  - Node.js [#node-js]
-    - Instalação [#instalação-node]
-    - Criando seu primeiro servidor [#criando-seu-primeiro-servidor]
-  - ReactJS e React Native [#reactjs-e-react-native]
-    - Instalação [#instalação-react]
-    - Como criar um projeto? [#como-criar-um-projeto]
-- Padronização de Sintaxe [#padronização-de-sintaxe]
-  - ESLint [#eslint]
-  - Prettier [#prettier]
-  - EditorConfig [#editorconfig]
-  - Style Guide (Airbnb) [#style-guide-airbnb]
-  - Como é feito a instalação disto tudo? [#como-é-feito-a-instalação-disto-tudo]
+- [Tecnologias](#tecnologias)
+  - [Node.js](#node-js)
+    - [Instalação](#instalação-node)
+    - [Criando seu primeiro servidor](#criando-seu-primeiro-servidor)
+  - [ReactJS e React Native](#reactjs-e-react-native)
+    - [Instalação](#instalação-react)
+    - [Como criar um projeto?](#como-criar-um-projeto)
+- [Padronização de Sintaxe](#padronização-de-sintaxe)
+  - [ESLint](#eslint)
+  - [Prettier](#prettier)
+  - [EditorConfig](#editorconfig)
+  - [Style Guide (Airbnb)](#style-guide-airbnb)
+  - [Como é feito a instalação disto tudo?](#como-é-feito-a-instalação-disto-tudo)
 
 ## Tecnologias
 A linguagem adotada pelo grupo é JavaScript, por simples motivos como: estar em constante crescimento, estar alinhada com o mercado, bibliotecas e frameworks em constante expansão e melhorias, além de ter uma curva de aprendizado fácil e descomplicada.    
