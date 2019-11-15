@@ -27,8 +27,9 @@
   - [Como é feito a instalação disto tudo?](#como-é-feito-a-instalação-disto-tudo)
     - [Configuração do ESLint e Prettier](#configuração-do-eslint-e-prettier)
 - [Estrutura de Arquivos](#estrutura-de-arquivos)
-  - [Node.js](#node-js-1)
-  - [ReactJS e React Native](#reactjs-e-react-native)
+  - [Node.js](#nodejs-1)
+  - [ReactJS e React Native](#reactjs-e-react-native-1)
+- [Contribuições](#contribuições)
 - [Autoria](#autoria)
 
 ---
@@ -325,6 +326,8 @@ Além de todas essas padronizações, também seguimos uma ordem de estruturaç�
 │   ├── config/
 │   ├── database/
 │   │   └── migrations/
+│   │   └── seeds/
+│   │   └── index.js
 │   ├── app.js
 │   ├── routes.js
 │   └── server.js
@@ -341,11 +344,26 @@ Além de todas essas padronizações, também seguimos uma ordem de estruturaç�
 
 O que significa?
 + **src** - Diretório contendo todos os arquivos da aplicação, é criado um diretório src para que o código da aplicação possa ser isolado em um diretório e facilmente portado para outros projetos, se necessário;
-  + **app** - Diretório que tem todas as regras de negócio da nossa aplicação.
-    + **controllers** - Diretório onde ficam os controladores da aplicação, é pura regra de negócio que vai controlar tudo o que precisa ser processado e retornado em uma requisição.
-    + **middlewares** - Diretório onde é possível fazer mudanças nos objetos de solicitação e resposta, encerrar um ciclo ou chamar um próximo middleware na pilha chamando a função `next()`
-    + **models** -  
+  + **app** - Diretório que tem todas as regras de negócio da nossa aplicação;
+    + **controllers** - Diretório onde ficam os controladores da aplicação, é pura regra de negócio que vai controlar tudo o que precisa ser processado e retornado em uma requisição;
+    + **middlewares** - Diretório onde é possível fazer mudanças nos objetos de solicitação e resposta, encerrar um ciclo ou chamar um próximo middleware na pilha chamando a função `next()`;
+    + **models** -  Diretório onde está os modelos das tabelas do nosso banco de dados;
   + **config** - Diretório para guardar os arquivos de configuração da aplicação, por exemplo, a configuração do banco de dados ou de autenticação (incluido apenas os dados que serão usado);
+  + **database** - Diretório onde está todas as configurações mais específicas do banco de dados;
+    + **migrations** - Migrations é a pasta onde se tem todas as definições dos campos e tipos de cada tabela e coluna do banco de dados;
+    + **seeds** - Seeds tem todas as configurações para automaticamente encher certas tabelas com alguma informação;
+    + **index.js** - Relaciona os modelos (da pasta _models_) com o próprio banco de dados, inicializa cada um e inicializa suas relationships também;
+  + **app.js** - Arquivo que contém todas as configurações básicas e essenciais para o Express;
+  + **routes.js** - Arquivo que contém todas as rotas da aplicação e para onde elas apontam.
+  + **server.js** - Arquivo que inicializa o servidor passando uma porta específica;
++ **package.json** - Diferente dos projetos comuns, esse arquivo tem as configurações necessárias para a publicação do Template no NPM, para saber mais sobre isso veja a seção abaixo.
++ **.eslintrc.js** - Arquivo de configuração do ESLint, é nele que são inseridas as regras e configurações de Linting do projeto, tal como a configuração do Resolver para o Babel Plugin Root Import e configuração da variável global __DEV__;
++ **.editorconfig** - Arquivo destinado à configuração do plugin Editor Config, que padroniza algumas configurações para o editor em diferentes ambientes;
++ **.gitignore** - Arquivo destinado à definir quais são os arquivos/pastas que serão ignorados pelo Git ao enviar um push;
++ **.nodemon.json** - Arquivo destinado à configuração do Sucrase com o Nodemon;
++ **.sequelizerc** - Arquivo destinado à configuração da localização das pastas que são usadas pelo [Sequelize](https://github.com/sequelize/sequelize);
++ **.prettierrc** - Arquivo destinado à configurações básicas de como o Prettier deve se comportar em relação à configurações específicas;
++ **.env.example** - Arquivo cópia do `.env` que é o arquivo responsável por guardar todas as variáveis ambientes da aplicação (como usuario e senha do banco de dados, DSN do Sentry, etc);
 ---
 
 ### ReactJS e React Native
@@ -379,6 +397,9 @@ O que significa?
 └── README.md
 ```
 ---
+
+## Contribuições
+Achou algum erro na documentação, ou gostaria de adicionar alguma informação para que fique mais completinho? Você é livre para dar o `git clone` na sua máquina, fazer essas alterações e fazer um push request para gente avaliar e você se tornar um contribuidor!
 
 ## Autoria
 Documentação escrita e desenvolvida pelo integrante [Bruno De Masi](https://github.com/brunodmsi).
