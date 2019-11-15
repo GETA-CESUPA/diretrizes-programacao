@@ -8,6 +8,7 @@
 </p>
 
 ## Tabela de conteúdo
+- [Por que padronização é importante?](#por-que-padronização-é-importante)
 - [Tecnologias](#tecnologias)
   - [Node.js](#node-js)
     - [Instalação](#instalação)
@@ -27,11 +28,15 @@
     - [Configuração do ESLint e Prettier](#configuração-do-eslint-e-prettier)
 - [Estrutura de Arquivos](#estrutura-de-arquivos)
   - [Node.js](#node-js-1)
-  - [React.js](#react-js)
-  - [React Native](#react-native)
+  - [ReactJS e React Native](#reactjs-e-react-native)
 - [Autoria](#autoria)
 
 ---
+
+## Por que padronização é importante?
+Sem uma padronização, os desenvolvedores envolvidos acabam realizando tarefas como acreditam ser melhor, tornando o **ambiente caótico** pela falta de controle. Então quando o caos se instala, os devs demoram mais tempo para resolver problemas para desenvolver e também para corrigir erros, pois não há uma **diretriz única**, levando cada profissional a fazer da forma que acredita ser correta e quem arca com os custos destes desperdícios e fica com um legado caótico é o cliente solicitante do desenvolvimento.   
+
+Com o ambiente padronizado e documentado, todos os desenvolvedores podem dar suporte a qualquer sistema, pois existirá um padrão de desenvolvimento. Podemos fazer uma analogia aos idiomas, nessa situação, todos da equipe falarão a mesma língua sem necessidade de traduções para compreender o que está escrito no código.
 
 ## Tecnologias
 A linguagem adotada pelo grupo é JavaScript, por simples motivos como: estar em constante crescimento, estar alinhada com o mercado, bibliotecas e frameworks em constante expansão e melhorias, além de ter uma curva de aprendizado fácil e descomplicada.    
@@ -67,9 +72,7 @@ A instalação dessa plataforma é necessária tanto para a parte back-end quant
 #### Sucrase
 O Sucrase é um compilador de JS/TS que substitui o Babel (_compilador padrão do JavaScript_), e os motivos para isso são 2: o Sucrase é **mais rápido** que o Babel por usar versões mais recentes e otimizadas do JavaScript, ao contrário do Babel que usa versões muito antigas, outro motivo seria que por ser uma versão mais recente do JavaScript, a sintaxe usada também é mais recente fazendo com que o código fique similar aos aliados na stack de JS (React JS e Native), isso faz com que a identificação com os diferentes frameworks seja mais fácil.   
 
-Isso se deve pelo fato que o Babel usa a sintaxe de **CommonJS** que utiliza o modelo _require/exports_, já o Sucrase utiliza o mais recente nomeado de **EcmaScript modules** que utiliza _import/exports_
-
-pra botar na prática, olhe este exemplo de como os dois são usados para um mesmo código
+O Babel usa a sintaxe de **CommonJS** que utiliza o modelo _require/exports_, já o Sucrase utiliza o mais recente nomeado de **EcmaScript modules** que utiliza _import/exports_. Para botar na prática, olhe este exemplo de como os dois são usados para um mesmo código
 + **CommonJS (Babel)**
 ```javascript
 // routes.js
@@ -99,7 +102,7 @@ const app = express();
 app.use(routes);
 app.listen(8080);
 ```
-Bem simples, né? Para rodar um código usando sucrase existem umas configurações bem básicas de serem feitas, tanto para rodar em ambiente de desenvolvedor (ver na seção sobre [Nodemon](#nodemon)) quanto em [produção](#rodando-em-produção).
+Bem simples, né? Para rodar um código usando sucrase existem umas configurações bem básicas de serem feitas, tanto para rodar em ambiente de desenvolvedor (ver na seção sobre [Nodemon](#nodemon)) quanto em ambiente de [produção](#rodando-em-produção).
 
 ---
 
@@ -133,7 +136,7 @@ Veja as seções de [Nodemon](#nodemon) e [Rodando Node com Sucrase](#rodando-no
 yarn add nodemon -D 
 ```
 
-este `-D` indica que é para ser adicionado como um dependência de **desenvolvimento**, e para este ser usado junto com Sucrase é necessário fazer uma simples configuração, basta criar um arquivo na raiz do projeto com o nome de `nodemon.json` e inserir a seguinte configuração:
+este `-D` indica que é para ser adicionado como um dependência de **desenvolvimento**, e para este ser usado junto com o  **Sucrase** é necessário fazer uma simples configuração, basta criar um arquivo na raiz do projeto com o nome de `nodemon.json` e inserir a seguinte configuração:
 ```json
 {
   "execMap": {
@@ -335,9 +338,17 @@ Além de todas essas padronizações, também seguimos uma ordem de estruturaç�
 ├── package.json
 └── README.md
 ```
+
+O que significa?
++ **src** - Diretório contendo todos os arquivos da aplicação, é criado um diretório src para que o código da aplicação possa ser isolado em um diretório e facilmente portado para outros projetos, se necessário;
+  + **app** - Diretório que tem todas as regras de negócio da nossa aplicação.
+    + **controllers** - Diretório onde ficam os controladores da aplicação, é pura regra de negócio que vai controlar tudo o que precisa ser processado e retornado em uma requisição.
+    + **middlewares** - Diretório onde é possível fazer mudanças nos objetos de solicitação e resposta, encerrar um ciclo ou chamar um próximo middleware na pilha chamando a função `next()`
+    + **models** -  
+  + **config** - Diretório para guardar os arquivos de configuração da aplicação, por exemplo, a configuração do banco de dados ou de autenticação (incluido apenas os dados que serão usado);
 ---
 
-### React.js
+### ReactJS e React Native
 ```
 ├── public/
 │   ├── index.html
@@ -368,8 +379,6 @@ Além de todas essas padronizações, também seguimos uma ordem de estruturaç�
 └── README.md
 ```
 ---
-
-### React Native
 
 ## Autoria
 Documentação escrita e desenvolvida pelo integrante [Bruno De Masi](https://github.com/brunodmsi).
